@@ -1,0 +1,18 @@
+<table class="table">
+
+    <thead class="table-dark">
+    <tr>
+        <TD>NOMBRE</TD><TD>APELLIDO</TD><TD>EMAIL</TD><TD>MONTO</TD> <td>¿TIENE PREMIO?</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <TR *ngFor="let i of ListaVendedores" [ngClass]="{'resaltar':i.monto>5000}">
+        <TD>{{i.nombre}}</TD><TD>{{i.apellido}}</TD><TD>{{i.mail}}</TD><td>{{i.monto}}</td>
+        <TD>
+            <DIV *ngIf="i.monto > 5000; else noAlcanza"> SI </DIV>
+            <ng-template #noAlcanza >NO</ng-template>
+        </TD>
+    </TR>
+    </tbody>
+</table>
